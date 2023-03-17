@@ -1,0 +1,62 @@
+{
+  "name": "eletro-vite",
+  "version": "1.0.0",
+  "description": "Vite + Electron with esbuild, so fast! ⚡",
+  "main": "dist/main/index.js",
+  "scripts": {
+    "dev": "rimraf dist && vite",
+    "build": "rimraf dist && vite build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "npm run test:main && npm run test:render",
+    "test:render": "vitest run -r src/render --passWithNoTests",
+    "test:main": "vitest run -r src/main --passWithNoTests",
+    "test:e2e": "vitest run",
+    "postinstall": "electron-builder install-app-deps",
+    "postuninstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "@vicons/ionicons5": "^0.12.0",
+    "bytenode": "^1.3.6",
+    "conf": "^10.2.0",
+    "einf": "^1.1.1",
+    "electron-log": "^4.4.8",
+    "electron-store": "^8.1.0",
+    "naive-ui": "^2.34.2",
+    "playwright-core": "^1.25.1",
+    "puppeteer-core": "^19.3.0",
+    "vue": "^3.2.33",
+    "vue-router": "^4.1.6"
+  },
+  "devDependencies": {
+    "@lightwing/eslint-config": "0.0.8",
+    "@vitejs/plugin-vue": "4.0.0",
+    "@vue/compiler-sfc": "3.2.45",
+    "@vue/test-utils": "2.2.6",
+    "electron": "22.0.0",
+    "electron-builder": "23.6.0",
+    "eslint": "8.29.0",
+    "happy-dom": "8.1.0",
+    "lint-staged": "13.1.0",
+    "playwright": "1.28.1",
+    "rimraf": "3.0.2",
+    "simple-git-hooks": "2.8.1",
+    "tslib": "2.4.1",
+    "typescript": "4.9.4",
+    "unplugin-vue-components": "^0.22.12",
+    "vite": "4.0.1",
+    "vite-plugin-doubleshot": "0.0.6",
+    "vite-plugin-windicss": "^1.8.9",
+    "vitest": "0.25.7",
+    "vue-tsc": "1.0.13",
+    "windicss": "^3.5.6"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,vue,md,json,yml}": [
+      "eslint --fix"
+    ]
+  }
+}
